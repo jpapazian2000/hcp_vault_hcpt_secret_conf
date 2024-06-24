@@ -1,13 +1,5 @@
 #create kv  and populate it
 # Mount a new KV v2 secrets engine at kv-customer-info/ in the us-west-org namespace
-data "tfe_outputs" "vault_infra" {
-   organization = "jpapazian-org"
-   workspace = "hcp_vault_hcpt_infra"
-} 
-data "tfe_outputs" "vault_ns" {
-   organization = "jpapazian-org"
-   workspace = "hcp_vault_hcpt_ns_conf"
-}
 resource "vault_mount" "dw_kv" {
    path        = "customer-info"
    type        = "kv-v2"
