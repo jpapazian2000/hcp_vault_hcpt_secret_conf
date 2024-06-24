@@ -18,7 +18,8 @@ data "tfe_outputs" "vault_ns" {
 provider "vault" {
     address = data.tfe_outputs.vault_infra.values.vault_public_url
     auth_login_userpass {
-      namespace = data.tfe_outputs.vault_ns.values.dw_namespace
+      #namespace = data.tfe_outputs.vault_ns.values.dw_namespace
+      namespace = "admin/dw"
       username = var.dw_admin_user
       password = var.dw_admin_password
   }
