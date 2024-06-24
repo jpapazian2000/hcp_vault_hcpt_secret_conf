@@ -3,4 +3,5 @@ output "kv_secret" {
 }
 output "dw_namespace" {
     value = data.tfe_outputs.vault_ns.values.dw_namespace
+    sensitive = true
 }
