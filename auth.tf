@@ -24,7 +24,7 @@ EOT
 resource "vault_policy" "dw_dw_db_policy" {
    name       = "dw_postgres_ro_policy"
    policy     = <<EOF
-path "${vault_database_secrets_mount.dw_db.path}/creds/${var.vault_database_secret_backend_role.dw_role.name}" {
+path "${vault_database_secrets_mount.dw_db.path}/creds/${vault_database_secret_backend_role.dw_role.name}" {
    capabilities = ["read"]
 }
 EOF
