@@ -24,7 +24,7 @@ resource "vault_database_secrets_mount" "dw_db" {
     name              = "dw_db"
     username          = var.postgres_user
     password          = var.postgres_password
-    connection_url    = "postgresql://{{username}}:{{password}}@${POSTGRES_URL}/postgres?sslmode=disable"
+    connection_url    = "postgresql://{{username}}:{{password}}@${var.POSTGRES_URL}/postgres?sslmode=disable"
     verify_connection = true
     allowed_roles = [
       "dw_role",
