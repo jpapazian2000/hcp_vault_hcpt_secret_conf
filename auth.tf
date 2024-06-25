@@ -32,14 +32,14 @@ EOF
 
 resource "vault_generic_endpoint" "postgres_read_user" {
   #depends_on           = [vault_auth_backend.userpass]
-  path                 = "auth/userpass/users/pg_user"
+  path                 = "auth/userpass/users/${var.postgres_user}"
   ignore_absent_fields = true
   #write_fields         = ["id"]
 
   data_json = <<EOT
 {
   "policies": ["dw_postgres_ro_policy"],
-  "password": "changeme"
+  "password": "${var.postgres_password}"
 }
 EOT
 }
