@@ -9,8 +9,7 @@ EOF
 }
 
 resource "vault_generic_endpoint" "kv_read_user" {
-  namespace  = vault_namespace.dw_ns.path  
-  depends_on           = [vault_auth_backend.userpass]
+  #depends_on           = [vault_auth_backend.userpass]
   path                 = "auth/userpass/users/kv_user"
   ignore_absent_fields = true
   #write_fields         = ["id"]
