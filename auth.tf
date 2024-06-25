@@ -1,6 +1,5 @@
 resource "vault_policy" "dw_kv_policy" {
    name       = "kv_customer-info_ro_policy"
-   namespace  = vault_namespace.dw_ns.path
    policy     = <<EOF
 path "${vault_mount.dw_kv.path}/*" {
    capabilities = ["read"]
