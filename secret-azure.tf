@@ -7,7 +7,7 @@ resource "vault_azure_secret_backend" "sanofi_azure" {
   client_secret = var.az_client_secret
   path = "sanofi_azure"
 }
-resource "vault_azure_secret_backend_role" "generated_role" {
+resource "vault_azure_secret_backend_role" "sanofi_vault_azure_role" {
   backend                     = vault_azure_secret_backend.sanofi_azure.path
   role                        = "sanofi_azure_role"
   ttl = 120
