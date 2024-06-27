@@ -35,7 +35,7 @@ resource "vault_generic_endpoint" "azure_read_user" {
 
   data_json = <<EOT
 {
-  "policies": ["dw_postgres_ro_policy"],
+  "policies": ["dw_azure-ro_policy"],
   "password": "${var.az-ro_user}"
 }
 EOT
