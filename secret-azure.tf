@@ -21,7 +21,7 @@ resource "vault_azure_secret_backend_role" "sanofi_vault_azure_role" {
 resource "vault_policy" "dw_azure-ro_policy" {
    name       = "dw_azure-ro_policy"
    policy     = <<EOF
-path "${vault_azure_secrets_backend.sanofi_azure.path}/creds/${vault_azure_secret_backend_role.sanofi_vault_azure_role.role}" {
+path "${vault_azure_secret_backend.sanofi_azure.path}/creds/${vault_azure_secret_backend_role.sanofi_vault_azure_role.role}" {
    capabilities = ["read"]
 }
 EOF
