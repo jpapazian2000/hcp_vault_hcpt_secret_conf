@@ -5,7 +5,7 @@ resource "vault_azure_secret_backend" "sanofi_azure" {
   tenant_id = var.az_tenant_id
   client_id = var.az_client_id
   client_secret = var.az_client_secret
-  path = "sanofi_azure"
+  path = "dw_azure"
 }
 resource "vault_azure_secret_backend_role" "sanofi_vault_azure_role" {
   backend                     = vault_azure_secret_backend.sanofi_azure.path
