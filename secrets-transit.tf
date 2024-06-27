@@ -9,6 +9,7 @@ resource "vault_mount" "transit" {
 resource "vault_transit_secret_backend_key" "key" {
   backend = vault_mount.transit.path
   name    = "dw-sanofi_eaas"
+  deletion_allowed = true
 }
 resource "vault_policy" "dw_eaas-encrypt-decrypt_policy" {
    name       = "dw_eaas-encrypt-decrypt_policy"
