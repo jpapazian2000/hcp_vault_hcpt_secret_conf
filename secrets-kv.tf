@@ -1,7 +1,7 @@
 #create kv  and populate it
 # Mount a new KV v2 secrets engine at kv-customer-info/ in the us-west-org namespace
 resource "vault_mount" "dw_kv" {
-   path        = "dw_customer-info"
+   path        = "dw_kv-customer-info"
    type        = "kv-v2"
 }
 # Create test data at customer-info/customer-001

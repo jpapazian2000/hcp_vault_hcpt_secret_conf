@@ -36,3 +36,6 @@ variable "az_subscription_id" {
 variable "az-ro_user" {
   description = "azure user read only"
 }
+ variable "sanofi-crypto_user" {
+  description = "user for encryption and decryption"
+ }
