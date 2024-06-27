@@ -16,7 +16,7 @@ resource "vault_pki_secret_backend_config_urls" "dw_sanofi_backend_urls" {
 }
 
 resource "vault_pki_secret_backend_root_cert" "dw_root" {
-  backend = vault.mount.pki.path
+  backend = vault_mount.pki.path
   type = "internal"
   common_name = "dw.sanofi.com"
   ttl = "315360000"
