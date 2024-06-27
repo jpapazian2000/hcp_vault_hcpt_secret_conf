@@ -39,9 +39,9 @@ resource "vault_database_secret_backend_role" "dw_role" {
     "CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}';",
     "GRANT SELECT ON ALL TABLES IN SCHEMA public TO \"{{name}}\";",
   ]
+  default_ttl = 60
+  max_ttl = 120
 }
-
-#create db secret and request dynamic secrets
 
 #create encryption key /transit
 

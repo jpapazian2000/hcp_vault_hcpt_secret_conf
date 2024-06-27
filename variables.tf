@@ -21,3 +21,15 @@ variable "postgres_user"{
 variable "postgres_password"{
   description= "password for user configured in postgres db"
 }
+variable "az_tenant_id" {
+  description = "azure tenant id"
+}
+variable "az_client_id" {
+  description = "azure application(client) id"
+}
+variable "az_client_secret" {
+  description = "azure client secret (NOT secret_id) of the key of the app"
+}
+variable "az_subscription_id" {
+  description = "subscription_id of the azure tenant"
+}
