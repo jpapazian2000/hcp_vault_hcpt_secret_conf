@@ -33,3 +33,6 @@ variable "az_client_secret" {
 variable "az_subscription_id" {
   description = "subscription_id of the azure tenant"
 }
+variable "az-ro_user" {
+  description = "azure user read only"
+}

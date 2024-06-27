@@ -14,6 +14,29 @@ resource "vault_azure_secret_backend_role" "sanofi_vault_azure_role" {
   max_ttl = 180
   azure_roles {
     role_name = "Contributor"
-    scope =  "/subscriptions/${var.az_subscription_id}/resourceGroups/azure-vault-sanofi-rg"
+    scope = "/subscriptions/${var.az_subscription_id}/resourceGroups/azure-vault-sanofi-rg"
   }
+}
+
+resource "vault_policy" "dw_azure-ro_policy" {
+   name       = "dw_azure-ro_policy"
+   policy     = <<EOF
+path "${vault_azure_secrets_backend.sanofi_azure.path}/creds/${vault_azure_secret_backend_role.sanofi_vault_azure_role.role}" {
+   capabilities = ["read"]
+}
+EOF
+}
+
+resource "vault_generic_endpoint" "azure_read_user" {
+  #depends_on           = [vault_auth_backend.userpass]
+  path                 = "auth/userpass/users/${var.az-ro_user}"
+  ignore_absent_fields = true
+  #write_fields         = ["id"]
+
+  data_json = <<EOT
+{
+  "policies": ["dw_postgres_ro_policy"],
+  "password": "${var.az-ro_user}"
+}
+EOT
 }
