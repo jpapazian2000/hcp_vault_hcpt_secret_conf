@@ -22,3 +22,14 @@ resource "vault_pki_secret_backend_root_cert" "dw_root" {
   ttl = "315360000"
   issuer_name = "dw-root-cert"
 }
+
+resource "vault_pki_secret_backend_role" "dw_role" {
+  backend          = vault_mount.pki.path
+  name             = "dw_role"
+  ttl              = 3600
+  allow_ip_sans    = true
+  key_type         = "rsa"
+  key_bits         = 4096
+  allowed_domains  = ["dw.sanofi.com"]
+  allow_subdomains = true
+}
