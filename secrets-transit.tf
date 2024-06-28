@@ -1,5 +1,5 @@
 resource "vault_mount" "transit" {
-  path                      = "sanofi-eaas"
+  path                      = "dw_eaas"
   type                      = "transit"
   description               = "generate keys to encrypt/decrypt data"
   default_lease_ttl_seconds = 120
