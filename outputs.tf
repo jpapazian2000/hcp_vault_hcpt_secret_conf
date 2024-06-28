@@ -17,6 +17,7 @@ output "dw_eaas_secret" {
 output "dw_pki_secret" {
     value = vault_mount.pki.path
 }
-output "vault_pki_secret_backend_root_cert_dw-root-cert" {
-  value = vault_pki_secret_backend_root_cert.dw_root.certificate
+output "dw_pki_issuer" {
+  value = vault_pki_secret_backend_issuer.dw_root.issuer_name
 }
+
