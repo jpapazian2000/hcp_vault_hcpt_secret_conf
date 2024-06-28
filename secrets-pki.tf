@@ -22,6 +22,12 @@ resource "vault_pki_secret_backend_root_cert" "dw_root" {
   ttl = "315360000"
   issuer_name = "dw-root-cert"
 }
+resource "vault_pki_secret_backend_issuer" "dw_root" {
+   backend                        = vault_mount.pki.path
+   issuer_ref                     = vault_pki_secret_backend_root_cert.dw_root.issuer_id
+   issuer_name                    = vault_pki_secret_backend_root_cert.dw_root.issuer_name
+   revocation_signature_algorithm = "SHA256WithRSA"
+}
 
 resource "vault_pki_secret_backend_role" "dw_role" {
   backend          = vault_mount.pki.path
