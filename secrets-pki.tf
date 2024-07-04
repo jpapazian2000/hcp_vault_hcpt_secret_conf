@@ -87,7 +87,7 @@ resource "vault_pki_secret_backend_role" "dw_intermediate_role" {
 resource "vault_policy" "dw_pki-int_policy" {
    name       = "dw_pki-int_policy"
    policy     = <<EOF
-   path "${vault_mount.dw_pki_int.path}/issue/${vault_pki_secret_backend_role.dw_intermediate_role.name}" {
+   path "${vault_mount.dw_pki_int.path}/roles/${vault_pki_secret_backend_role.dw_intermediate_role.name}" {
    capabilities = ["read"]
 }
 EOF
