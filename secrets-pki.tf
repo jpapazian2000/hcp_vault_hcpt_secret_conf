@@ -83,3 +83,25 @@ resource "vault_pki_secret_backend_role" "dw_intermediate_role" {
    allowed_domains  = ["chc.sanofi.com"]
    allow_subdomains = true
 }
+
+resource "vault_policy" "dw_pki-int_policy" {
+   name       = "dw_pki-int_policy"
+   policy     = <<EOF
+   path "${vault_mount.dw_pki_int.path}/issue/${vault_pki_secret_backend_role.dw_intermediate_role.name}" {
+   capabilities = ["read"]
+}
+EOF
+}
+resource "vault_generic_endpoint" "pki_int_user" {
+  #depends_on           = [vault_auth_backend.userpass]
+  path                 = "auth/userpass/users/${var.pki-int_user}"
+  ignore_absent_fields = true
+  #write_fields         = ["id"]
+
+  data_json = <<EOT
+{
+  "policies": ["dw_pki-int_policy"],
+  "password": "${var.pki-int_user}"
+}
+EOT
+}

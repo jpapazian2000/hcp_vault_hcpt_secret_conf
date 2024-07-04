@@ -39,3 +39,6 @@ variable "az-ro_user" {
  variable "sanofi-crypto_user" {
   description = "user for encryption and decryption"
  }
+ variable "pki-int_user" {
+  description = "user for generating certs"
+ }
