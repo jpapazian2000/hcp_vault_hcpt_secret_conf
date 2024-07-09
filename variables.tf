@@ -1,3 +1,7 @@
+variable "vault_public_url" {
+  description = "vault public url"
+}
+
 variable "dw_admin_user" {
   description = "user who will manage vault"
 }
