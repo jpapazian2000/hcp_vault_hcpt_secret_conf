@@ -9,11 +9,11 @@ resource "vault_pki_secret_backend_config_urls" "dw_sanofi_backend_urls" {
   backend = vault_mount.pki.path
   issuing_certificates = [
     #"${data.tfe_outputs.vault_infra.values.vault_public_url}/v1/${vault_mount.pki.path}/ca",
-    "var.vault_public_url/v1/${vault_mount.pki.path}/ca",
+    "${var.vault_public_url}/v1/${vault_mount.pki.path}/ca",
   ]
   crl_distribution_points = [ 
     #"${data.tfe_outputs.vault_infra.values.vault_public_url}/v1/${vault_mount.pki.path}/crl"
-    "var.vault_public_url/v1/${vault_mount.pki.path}/crl"
+    "${var.vault_public_url}Ò/v1/${vault_mount.pki.path}/crl"
    ]
 }
 
