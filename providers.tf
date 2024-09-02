@@ -21,7 +21,7 @@ provider "vault" {
     auth_login_userpass {
       namespace = "admin/sanofi/${data.tfe_outputs.vault_ns.values.dw_namespace}"
       #namespace = "admin/dw"
-      username = var.dw_admin_user
-      password = var.dw_admin_password
+      username = var.ns_admin_user
+      password = var.ns_admin_password
   }
 }
