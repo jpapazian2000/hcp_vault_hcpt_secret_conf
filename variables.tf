@@ -2,10 +2,10 @@ variable "vault_public_url" {
   description = "vault public url"
 }
 
-variable "dw_admin_user" {
+variable "ns_admin_user" {
   description = "user who will manage vault"
 }
-variable "dw_admin_password" {
+variable "ns_admin_password" {
   description = "password for the admin user"
 }
 variable "POSTGRES_URL" {
